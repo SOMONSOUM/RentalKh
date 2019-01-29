@@ -1,0 +1,8 @@
+<% if user_signed_in? %>
+  <h2> <%= pluralize(@users.size, 'User') %></h2>
+  <ul>
+    <% @users.each_with_index do |user, index| %>
+    <li><%= user.email %></li>
+    <% end %>
+  </ul>
+<% end %>

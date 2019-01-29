@@ -1,0 +1,3 @@
+class RoomPolicy < ApplicationPolicy
+  
+end

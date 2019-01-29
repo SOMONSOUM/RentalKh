@@ -1,0 +1,101 @@
+<div class="app-content content">
+  <div class="content-wrapper">
+    <div class="content-body">
+      <!-- Basic form layout section start -->
+      <section id="basic-form-layouts">
+        <div class="ml-1 row match-height">
+          <div class="col-md-12">
+            <div class="card">
+              <div class="card-header">
+                <h4 class="card-title" id="basic-layout-form">Room Info</h4>
+                <a class="heading-elements-toggle">
+                  <i class="la la-ellipsis-v font-medium-3"></i>
+                </a>
+                <div class="heading-elements">
+                  <ul class="list-inline mb-0">
+                    <li>
+                      <a data-action="collapse">
+                        <i class="ft-minus"></i>
+                      </a>
+                    </li>
+                    <li>
+                      <a data-action="reload">
+                        <i class="ft-rotate-cw"></i>
+                      </a>
+                    </li>
+                    <li>
+                      <a data-action="expand">
+                        <i class="ft-maximize"></i>
+                      </a>
+                    </li>
+                    <li>
+                      <a data-action="close">
+                        <i class="ft-x"></i>
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div class="card-content collapse show">
+                <div class="card-body">
+                    <%= simple_form_for @room do |f| %>
+                    <div class="form-body">
+                      <h4 class="form-section">
+                        <i class="ft-home"></i>
+                        Room Info</h4>
+                      <div class="row">
+                        <div class="col-md-6">
+                          <div class="form-group">
+                            <%=f.label :full_address, for: "projectinput1" %>
+                            <%=f.text_field :full_address, id: "projectinput1", class: "form-control", placeholder: "Full Address"%>
+                          </div>
+                        </div>
+                        <div class="col-md-6">
+                          <div class="form-group">
+                            <%=f.label :room_price, for: "projectinput1"%>
+                            <%=f.number_field :room_price, :input_html => { :type => "number" }, id: "projectinput1", class: "form-control", placeholder: "Room Price"%>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-md-6">
+                          <div class="form-group">
+                            <%=f.label :room_size, for: "projectinput1"%>
+                            <%=f.number_field :room_size, :input_html => { :type => "number" }, id: "projectinput1", class: "form-control", placeholder: "Room Size"%>
+                          </div>
+                        </div>
+                        <div class="col-md-6">
+                          <div class="form-group">
+                            <%=f.label :room_condition, for: "projectinput1"%>
+                            <%=f.text_field :room_condition, :input_html => { :type => "number" }, id: "projectinput1", class: "form-control", placeholder: "Room Condition" %>
+                          </div>
+                        </div>
+                        <div class="col-md-6">
+                          <div class="form-group">
+                            <%=f.label :room_description, for: "projectinput8" %>
+                            <%=f.text_area :room_description, id: "projectinput8", rows: "5", class: "form-control", placeholder: "Your Description"%>
+                          </div>
+                        </div>
+                        <div class="col-md-6">
+                          <div class="form-group">
+                            <%=f.input :room_image, as: :file, id: "projectinput8", class: "form-control"%>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="form-actions">
+                      <%=link_to 'Cancel', root_path, class: "btn btn-warning mr-1" %>
+                      <%=f.button :submit, 'Save', class: "btn btn-primary" %>
+                    </div>
+                  <%end%>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- // Basic form layout section end -->
+  </div>
+</div>
+</div>

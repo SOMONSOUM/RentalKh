@@ -1,0 +1,80 @@
+<nav class="header-navbar navbar-expand-sm navbar navbar-with-menu navbar-light navbar-shadow border-grey border-lighten-2">
+  <div class="navbar-wrapper">
+    <div class="navbar-header">
+      <ul class="nav navbar-nav mr-auto">
+        <li class="nav-item mobile-menu d-md-none float-left">
+          <button class="nav-link menu-toggle hamburger hamburger--arrow js-hamburger is-active">
+            <span class="hamburger-box"></span>
+            <span class="hamburger-inner"></span></button>
+        </li>
+        <li class="nav-item">
+          <a href="#" class="navbar-brand nav-link"><%= image_tag "/images/logo/logo-dark.png" %></a>
+        </li>
+        <li class="nav-item d-md-none float-right">
+          <a data-toggle="collapse" data-target="#navbar-mobile10" class="nav-link open-navbar-container">
+            <i class="la la-ellipsis-h pe-2x icon-rotate-right"></i>
+          </a>
+        </li>
+      </ul>
+    </div>
+    <div class="navbar-container content">
+      <div id="navbar-mobile10" class="collapse navbar-collapse">
+        <ul class="nav navbar-nav mr-auto">
+          <li class="nav-item">
+            <%=link_to root_path, class: "nav-link" do %><i class="la la-home"></i> Dashboard<%end%>
+          </li>
+          <li class="nav-item">
+            <%=link_to users_path, class: "nav-link" do %><i class="la la-user"></i> User<%end%>
+          </li>
+        </ul>
+        <ul class="nav navbar-nav float-right">
+          <li class="dropdown dropdown-language nav-item">
+            <a id="dropdown-flag10" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="dropdown-toggle nav-link">
+              <i class="flag-icon flag-icon-gb"></i>
+              <span class="selected-language">English</span>
+              <i class="caret"></i>
+            </a>
+            <div aria-labelledby="dropdown-flag10" class="dropdown-menu dropdown-menu-right">
+              <a href="#" class="dropdown-item">
+                <i class="flag-icon flag-icon-gb"></i>
+                English</a>
+              <a href="#" class="dropdown-item">
+                <i class="flag-icon flag-icon-kh"></i>
+                Khmer</a>
+            </div>
+          </li>
+          <li class="dropdown dropdown-user nav-item">
+            <a href="#" data-toggle="dropdown" class="dropdown-toggle nav-link dropdown-user-link">
+              <span class="avatar avatar-online"><%= image_tag "/images/users/boy.png" %>
+                <i></i>
+              </span>
+              <% if user_signed_in? %>
+                <h6 class="user-name">
+                <%= current_user.first_name %></h6>
+              <% else %>
+              <h6 class="user-name">
+                John Doe</h6>
+              <% end %>
+              <i class="caret"></i>
+            </a>
+            <div class="dropdown-menu dropdown-menu-right">
+              <%if user_signed_in?%>
+                <%= link_to edit_user_registration_path, class: "dropdown-item" do %>
+                  <i class="ft-user"></i>
+                  Edit Profile <% end %>
+              <div class="dropdown-divider"></div>
+                <%=link_to destroy_user_session_path, method: :delete, class: "dropdown-item" do %>
+                  <i class="la la-arrow-circle-right"></i>Logout
+                <% end %>      
+              <% else %>
+                <%=link_to new_user_session_path, class: "dropdown-item" do %>
+                  <i class="la la-arrow-circle-left"></i>Login
+                <% end %>
+              <% end %>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</nav>

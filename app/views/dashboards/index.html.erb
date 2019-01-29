@@ -1,0 +1,83 @@
+<div class="app-content content">
+  <div class="content-wrapper">
+
+    <div class="content-body">
+      <!-- Base style table -->
+      <section id="base-style">
+        <div class="row">
+          <div class="col-12">
+            <div class="card">
+              <div class="card-header">
+                <h4 class="card-title float-left">
+                  All Rooms
+                </h4>
+                <div class="float-right">
+                  <%=link_to new_room_path,  class: "btn btn-sm btn-danger box-shadow-2 btn-min-width pull-right white" do%>
+                    <i class="ft-plus white"></i>Add New Room
+                  <%end%>
+                </div>
+              </div>
+              <div class="card-body mt-1">
+                <div class="table-responsive">
+                  <table id="active-accounts" class="table alt-pagination table-wrapper">
+                    <thead>
+                      <tr>
+                        <th class="border-top-0">#</th>
+                        <th class="border-top-0">Full Address</th>
+                        <th class="border-top-0">Price</th>
+                        <th class="border-top-0">Size</th>
+                        <th class="border-top-0">Condition</th>
+                        <th class="border-top-0">Create at</th>
+                        <th class="border-top-0">Action</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <%@rooms.each_with_index do |room, index|%>
+                        <tr>
+                          <td>
+                            <%=index + 1%>
+                          </td>
+                          <td>
+                            <div class="ac-type"><%=room.full_address%></div>
+                          </td>
+                          <td>
+                            <div class="ac-number"><%=room.room_price%></div>
+                          </td>
+                          <td>
+                            <div class="ac-hol-name"><%=room.room_size%></div>
+                          </td>
+                          <td>
+                            <div class="ac-status badge badge-success badge-pill badge-sm"><%=room.room_condition%>
+                            </div>
+                          </td>
+                          <td>
+                            <div class="ac-balance">
+                              <%=room.created_at.strftime("%d/%m/%Y")%>
+                            </div>
+                          </td>
+                          <td>
+                            <div class="action">
+                              <%=link_to edit_room_path(room) do%>
+                                <i class="la la-pencil-square success"></i>
+                              <%end%>
+                              <%=link_to room, :method => :delete, data: { confirm: "Are you sure?" } do%>
+                                <i class="la la-trash danger"></i>
+                              <%end%>
+                              <%=link_to root_path do%>
+                                <i class="la la-eye secondary"></i>
+                              <%end%>
+                            </div>
+                          </td>
+                        </tr>
+                      <%end%>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </div>
+</div>
